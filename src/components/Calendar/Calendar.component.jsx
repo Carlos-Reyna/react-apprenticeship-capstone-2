@@ -6,14 +6,14 @@ import {
 } from '../../utils/DateUtils';
 import CalendarDay from '../CalendarDay/CalendarDay.component';
 import { CalendarWrapper, CalendarHeader } from '../styled';
-import { daysOfTheWeek } from '../../utils/const';
+import { DAYS_OF_WEEK } from '../../utils/const';
 import { CalendarDayColumn } from '../styled/Custom.styled';
-/* eslint no-restricted-exports: ["error", { "restrictedNamedExports": ["default", "foo"] }] */
+
 function Calendar({
   selectedDate,
   setSelectedDate,
   setIsloading,
-  setShowCalendar,
+  setShowImage,
   setMedia,
 }) {
   const [dates, setDates] = useState([]);
@@ -25,7 +25,7 @@ function Calendar({
       setMedia({});
       setSelectedDate(date);
       setIsloading(true);
-      setShowCalendar(false);
+      setShowImage(true);
     }
   };
 
@@ -81,7 +81,7 @@ function Calendar({
       </CalendarHeader>
 
       <CalendarWrapper>
-        {daysOfTheWeek.map((el) => (
+        {DAYS_OF_WEEK.map((el) => (
           <CalendarDayColumn key={el}>{el}</CalendarDayColumn>
         ))}
         {dates.map((dateObj) => (

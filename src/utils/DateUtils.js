@@ -1,7 +1,7 @@
-import { months } from './const';
+import { MONTHS, OLDEST_APOD_VALID_DATE } from './const';
 
 export function getselectedMonth(selectedMonth) {
-  return months[selectedMonth];
+  return MONTHS[selectedMonth];
 }
 
 export function getCurrentMonthDays(year, month) {
@@ -11,7 +11,7 @@ export function getCurrentMonthDays(year, month) {
 }
 
 export function getcurrentMonth(month) {
-  return months[month.getMonth()];
+  return MONTHS[month.getMonth()];
 }
 
 export function getDatesObject(numberOfDays, date) {
@@ -37,7 +37,8 @@ export function getDatesObject(numberOfDays, date) {
 
   for (let index = 0; index < numberOfDays; index += 1) {
     const newDate = new Date(year, month, index + 1);
-    const isSelectable = !(newDate >= currentDate);
+    let isSelectable = !(newDate >= currentDate);
+    isSelectable = newDate <= OLDEST_APOD_VALID_DATE ? false : isSelectable;
     arrayDates.push({ date: newDate, id: newDate.getTime(), isSelectable });
   }
 

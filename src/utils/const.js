@@ -1,4 +1,4 @@
-export const months = [
+export const MONTHS = [
   'January',
   'February',
   'March',
@@ -13,7 +13,9 @@ export const months = [
   'December',
 ];
 
-export const daysOfTheWeek = ['Sun', 'Mon', 'Tus', 'Wed', 'Thu', 'Fry', 'Sat'];
+export const DAYS_OF_WEEK = ['Sun', 'Mon', 'Tus', 'Wed', 'Thu', 'Fry', 'Sat'];
 
 export const VIDEO = 'video';
 export const IMAGE = 'image';
+
+export const OLDEST_APOD_VALID_DATE = new Date(1995, 5, 15);
