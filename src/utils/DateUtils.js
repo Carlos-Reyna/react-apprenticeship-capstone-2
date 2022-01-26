@@ -30,16 +30,28 @@ export function getDatesObject(numberOfDays, date) {
   if (dateDiff > 0) {
     for (let index = dateDiff; index < priorNumberOfDays; index += 1) {
       const isSelectable = false;
+      const displayButton = false;
       const newDate = new Date(priorYear, priorMonth, index + 1);
-      arrayDates.push({ date: newDate, id: newDate.getTime(), isSelectable });
+      arrayDates.push({
+        date: newDate,
+        id: newDate.getTime(),
+        isSelectable,
+        displayButton,
+      });
     }
   }
 
   for (let index = 0; index < numberOfDays; index += 1) {
     const newDate = new Date(year, month, index + 1);
     let isSelectable = !(newDate >= currentDate);
+    const displayButton = true;
     isSelectable = newDate <= OLDEST_APOD_VALID_DATE ? false : isSelectable;
-    arrayDates.push({ date: newDate, id: newDate.getTime(), isSelectable });
+    arrayDates.push({
+      date: newDate,
+      id: newDate.getTime(),
+      isSelectable,
+      displayButton,
+    });
   }
 
   return arrayDates;

@@ -28,7 +28,7 @@ function MediaContainer({
   }, [showImage]);
 
   return ReactDOM.createPortal(
-    <Modal display={display}>
+    <Modal display={display} title="media-modal">
       <ModalBody>
         {isLoading ? (
           <div className="fa-2x">
@@ -78,7 +78,11 @@ function ModalContent({ media, setShowImage, selectedDate }) {
         Explanation: <TextContent>{media.explanation}</TextContent>{' '}
       </TextItem>
 
-      <CustomButton onClick={() => setShowImage(false)} type="button">
+      <CustomButton
+        onClick={() => setShowImage(false)}
+        type="button"
+        title="dismiss-btn"
+      >
         Dismiss
       </CustomButton>
     </div>

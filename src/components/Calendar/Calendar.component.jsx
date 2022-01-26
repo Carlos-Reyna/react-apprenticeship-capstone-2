@@ -21,9 +21,9 @@ function Calendar({
   const [displayYear, setDisplayYear] = useState(selectedDate.getFullYear());
 
   const handleClick = (date, isSelectable) => {
+    setMedia({});
+    setSelectedDate(date);
     if (isSelectable) {
-      setMedia({});
-      setSelectedDate(date);
       setIsloading(true);
       setShowImage(true);
     }
@@ -65,24 +65,29 @@ function Calendar({
   };
 
   return (
-    <div>
+    <div title="calendar">
       <CalendarHeader>
         <i
           className="fa fa-chevron-left"
           onClick={() => handleMonthChange(false)}
           aria-hidden="true"
+          title="calendar-control-back"
         />
-        {getselectedMonth(displayMonth)} {displayYear}
+        <span title="month"> {getselectedMonth(displayMonth)}</span>
+        <span title="year"> {displayYear} </span>
         <i
           className="fa fa-chevron-right"
           onClick={() => handleMonthChange(true)}
           aria-hidden="true"
+          title="calendar-control-forward"
         />
       </CalendarHeader>
 
       <CalendarWrapper>
         {DAYS_OF_WEEK.map((el) => (
-          <CalendarDayColumn key={el}>{el}</CalendarDayColumn>
+          <CalendarDayColumn key={el} title={el}>
+            {el}
+          </CalendarDayColumn>
         ))}
         {dates.map((dateObj) => (
           <CalendarDay

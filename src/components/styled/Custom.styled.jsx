@@ -58,6 +58,10 @@ export const CalendarHeader = styled.div`
   i:hover {
     color: #34c9eb;
   }
+
+  span {
+    margin-right: 5px;
+  }
 `;
 
 export const CalendarCell = styled.div`
@@ -79,10 +83,6 @@ export const CalendarCell = styled.div`
     display: none;
     width: 100%;
     margin-left: 2px;
-  }
-
-  ${CustomButton} i {
-    display: none;
   }
 
   &:hover {

@@ -11,10 +11,18 @@ function Mainpage() {
   const [selectedDate, setSelectedDate] = useState(current);
   const [error, setError] = useState(null);
   const [showImage, setShowImage] = useState(true);
-  UseApod(selectedDate, setMedia, setIsloading, setError);
+  UseApod(selectedDate, setMedia, setIsloading, setError, setShowImage);
   return (
     <Layout>
-      {error !== null ? <div>{error.msg}</div> : null}
+      {error !== null ? (
+        <div title="Error">{error.msg}</div>
+      ) : (
+        <div title="Tip">
+          Move your mouse over a day to see cool things{' '}
+          <i className="fa fa-smile-o" />
+        </div>
+      )}
+
       <Calendar
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
@@ -30,6 +38,7 @@ function Mainpage() {
         showImage={showImage}
         selectedDate={selectedDate}
         setShowImage={setShowImage}
+        title="media-container"
       />
     </Layout>
   );
