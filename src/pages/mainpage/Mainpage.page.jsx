@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Calendar from '../../components/Calendar/Calendar.component';
 import MediaContainer from '../../components/MediaContainer';
 import UseApod from '../../utils/hooks/UseApod';
-import { Layout } from '../../components/styled';
+import { Layout, CustomButton } from '../../components/styled';
+import ImageSlider from '../../components/ImageSlider/ImageSlider.component';
 
 function Mainpage() {
   const current = new Date();
@@ -10,7 +11,8 @@ function Mainpage() {
   const [isLoading, setIsloading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(current);
   const [error, setError] = useState(null);
-  const [showImage, setShowImage] = useState(true);
+  const [showImage, setShowImage] = useState(false);
+  const [showSlider, setShowSlider] = useState(false);
   UseApod(selectedDate, setMedia, setIsloading, setError, setShowImage);
   return (
     <Layout>
@@ -31,6 +33,14 @@ function Mainpage() {
         setMedia={setMedia}
         title="calendar-container"
       />
+      <CustomButton
+        style={{ width: '25%' }}
+        onClick={() => setShowSlider(true)}
+      >
+        Anaaa, dame click
+      </CustomButton>
+
+      <ImageSlider showSlider={showSlider} setShowSlider={setShowSlider} />
 
       <MediaContainer
         isLoading={isLoading}

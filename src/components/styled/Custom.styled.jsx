@@ -15,17 +15,15 @@ export const CustomButton = styled.div`
   list-style: none;
   margin: 0;
   outline: none;
-  padding: 10px 16px;
+  padding: 10px 10px 10px 16px;
   position: relative;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-transition: color 100ms;
   transition: color 100ms;
-  width: 50%;
-  margin-left: 25%;
   margin-top: 5px;
-
+  grid-column: span ${(props) => (props.columnSpan ? props.columnSpan : 1)};
   &:hover,
   &:focus {
     background-color: #f082ac;
@@ -162,4 +160,13 @@ export const TextItem = styled.div`
 export const TextContent = styled.div`
   font-family: 'Lato', sans-serif;
   font-weight: 300;
+`;
+
+export const FooterButtons = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 150px 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 40px;
+  grid-row-gap: 20px;
+  width: 100%;
 `;
