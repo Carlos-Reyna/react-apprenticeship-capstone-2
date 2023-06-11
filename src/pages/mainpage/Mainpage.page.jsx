@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Calendar from '../../components/Calendar/Calendar.component';
 import MediaContainer from '../../components/MediaContainer';
 import UseApod from '../../utils/hooks/UseApod';
-import { Layout, CustomButton } from '../../components/styled';
+import { Layout } from '../../components/styled';
 import ImageSlider from '../../components/ImageSlider/ImageSlider.component';
 
 function Mainpage() {
@@ -33,12 +33,6 @@ function Mainpage() {
         setMedia={setMedia}
         title="calendar-container"
       />
-      <CustomButton
-        style={{ width: '25%' }}
-        onClick={() => setShowSlider(true)}
-      >
-        Anaaa, dame click
-      </CustomButton>
 
       <ImageSlider showSlider={showSlider} setShowSlider={setShowSlider} />
 
